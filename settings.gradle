@@ -1,0 +1,2 @@
+rootProject.name='ufone Packages'
+include ':app'

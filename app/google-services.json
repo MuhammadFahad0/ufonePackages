@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "990231812427",
+    "firebase_url": "https://ufone-packages-d6707.firebaseio.com",
+    "project_id": "ufone-packages-d6707",
+    "storage_bucket": "ufone-packages-d6707.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:990231812427:android:ad1bac6665e39d650eb0ce",
+        "android_client_info": {
+          "package_name": "com.fahad.ufonepackages"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "990231812427-7ofintqqfbgo4kssn975dn167nfi1opv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fahad.ufonepackages",
+            "certificate_hash": "90379fb552fb44fdce29f8ee1d17f4338d2e0a38"
+          }
+        },
+        {
+          "client_id": "990231812427-67i30l08a3v3sr0b3re7dduhseik2p31.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fahad.ufonepackages",
+            "certificate_hash": "135caffa6d181c73ff20ee6e2fabdc0d1e51f27e"
+          }
+        },
+        {
+          "client_id": "990231812427-hqnko327gmip6qkv53bib1it1fdko5l5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrrmM4l0DU5MG4PUONm4JEPvMlMyTdqUE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "990231812427-hqnko327gmip6qkv53bib1it1fdko5l5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
