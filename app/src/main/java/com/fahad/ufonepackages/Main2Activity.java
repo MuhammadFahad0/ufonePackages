@@ -1,18 +1,29 @@
 package com.fahad.ufonepackages;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.SQLException;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Main2Activity extends AppCompatActivity {
+
+    private AdView mAdView;
+    private InterstitialAd mInterstitialAd;
 
     Cursor c = null;
     List<product> list;
@@ -32,6 +43,14 @@ public class Main2Activity extends AppCompatActivity {
         manager = new LinearLayoutManager(this);
         RC.setLayoutManager(manager);
 
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+
+        mAdView = findViewById(R.id.banner_container3);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
 
         list = new ArrayList<>();
 
@@ -47,10 +66,8 @@ public class Main2Activity extends AppCompatActivity {
             throw sqle;
         }
 
-
         Intent intent = getIntent();
         typeselection = intent.getStringExtra("Key2");
-
 
                 switch (typeselection)
                 {
@@ -76,7 +93,13 @@ public class Main2Activity extends AppCompatActivity {
 
                     case "BROADBAND":
                         c = myDbHelper.query("ufonebroadband", null, null, null, null, null, null);
-                        txt.setText("Ufone Broadband");
+                        txt.setText("EVO Wireless Broadband");
+                        txt.setTextColor(Color.parseColor("#006029"));
+                        break;
+
+                    case "datasim":
+                        c = myDbHelper.query("ufonedatasim", null, null, null, null, null, null);
+                        txt.setText("ufone Data Sim");
                         break;
                 }
         if (c.moveToFirst()) {
@@ -86,5 +109,17 @@ public class Main2Activity extends AppCompatActivity {
         }
         adp = new adrapter(Main2Activity.this,list);
         RC.setAdapter(adp);
+    }
+    @Override
+    public void onBackPressed() {
+
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        } else {
+            Log.d("TAG", "The interstitial wasn't loaded yet.");
+        }
+
+
+        super.onBackPressed();
     }
 }

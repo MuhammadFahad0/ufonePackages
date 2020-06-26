@@ -113,4 +113,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return myDataBase.rawQuery("SELECT * FROM "+table,null);
         }
     }
+
+    public void delete()
+    {
+        myContext.deleteDatabase(DB_NAME);
+    }
 }
